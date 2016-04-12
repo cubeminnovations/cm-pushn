@@ -32,7 +32,9 @@ function wpn_register_admin_pages (){
 
     add_submenu_page( 'wpn-welcome', __( 'WPN Settings', 'wpn' ) , __( 'WPN Settings', 'wpn' ), 'manage_options', 'wpn-settings', 'wpn_admin_settings_page' );
     add_submenu_page( 'wpn-welcome', __( 'WPN Send Notification', 'wpn' ) , __( 'WPN Send Notification', 'wpn' ), 'manage_options', 'wpn-send-notification', 'wpn_admin_send_notitification_page' );
-
+    add_submenu_page( 'wpn-welcome', __( 'WPN Simple API Setting', 'wpn' ) , __( 'WPN Simple API Setting', 'wpn' ), 'manage_options', 'wpn-simpleapi', 'wpn_admin_simpleapi_page' );
+    add_submenu_page( 'wpn-welcome', __( 'WPN Custom API Setting', 'wpn' ) , __( 'WPN Custom API Setting', 'wpn' ), 'manage_options', 'wpn-customapi', 'wpn_admin_customapi_page' );
+    
 }
 add_action( 'admin_menu', 'wpn_register_admin_pages' );
  
@@ -60,6 +62,14 @@ function wpn_admin_welcome_page(){
 
 function wpn_admin_settings_page() {
 	include plugin_dir_path( __FILE__ ) . '/screens/settings.php';
+}
+
+function wpn_admin_simpleapi_page() {
+	include plugin_dir_path( __FILE__ ) . '/screens/simpleapi.php';
+}
+
+function wpn_admin_customapi_page() {
+	include plugin_dir_path( __FILE__ ) . '/screens/customapi.php';
 }
 
 function wpn_admin_send_notitification_page() {

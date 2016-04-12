@@ -6,7 +6,7 @@
 
 	<h2 class="nav-tab-wrapper">
 		<a href="<?php echo admin_url( 'admin.php?page=wpn-welcome' ); ?>" class="nav-tab wpn-nav-tab nav-tab-active" style="background-color: white;border-left:5px solid red;">About</a>
-		<a href="<?php echo admin_url( 'admin.php?page=wpn-settings' ); ?>" class="nav-tab wpn-nav-tab" style="background-color: white">Settings</a>
+		<a href="<?php echo admin_url( 'admin.php?page=wpn-simpleapi' ); ?>" class="nav-tab wpn-nav-tab" style="background-color: white">Settings</a>
 		<a href="<?php echo admin_url( 'admin.php?page=wpn-send-notification' ); ?>" class="nav-tab wpn-nav-tab" style="background-color: white">Send Notification</a>
 	</h2>
 
