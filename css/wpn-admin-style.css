@@ -1,0 +1,31 @@
+.block {
+	display: block;
+}
+.wpn-tab-container {
+	margin-top: 50px;
+}
+.wpn-form-item {
+	margin-bottom: 20px;
+}
+.wpn-nav-tab:focus,
+.wpn-nav-tab:active {
+	box-shadow: none;
+}
+#toplevel_page_wpn-welcome ul {
+	display: none;
+}
+.wpn-label span {
+	font-size: 12px;
+	color: #888;
+}
+.regular-text.wpn-error {
+	border-color: #c0392b;
+}
+body .wpn-about-page .notice-warning {
+	display: block !important;
+}
+body .wpn-about-page .wp-badge {
+	background-image: url('../images/logo-wpn-push-notification.png') !important;
+	background-color: #fff !important;
+	color: #464646;
+}

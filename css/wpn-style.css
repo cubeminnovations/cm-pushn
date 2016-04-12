@@ -1,0 +1,18 @@
+a.wpn-button,
+a.wpn-button:hover {
+    color: #fff;
+    background: #D81E00;
+    padding: 10px 20px;
+    display: inline-block;
+    text-decoration: none;
+}
+p.wpn-button-container {
+    text-align: center;
+}
+div.wpn-button-container {
+    text-align: center;
+    margin: 30px 0;
+}
+p.wpn-description {
+    color: #707070;
+}
