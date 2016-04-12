@@ -16,7 +16,18 @@
 		if ( isset($_POST['wpn-pushpad-title-notification']) ) {
 			$wpn_options['notification_title'] = esc_html($_POST['wpn-pushpad-title-notification']);
 		}
-
+		
+		if ( isset($_POST['wpn-pushpad-api-type']) ) {
+			$wpn_options['pushpad-api-type'] = esc_html($_POST['wpn-pushpad-api-type']);
+		}
+        
+        if ( isset($_POST['wpn-gcm']) ) {
+			$wpn_options['gcm'] = esc_html($_POST['wpn-gcm']);
+		}
+		
+		if ( isset($_POST['wpn-sender-id']) ) {
+			$wpn_options['senderID'] = esc_html($_POST['wpn-sender-id']);
+		}
 		update_option( 'wpn-settings', $wpn_options );
 
 	}
@@ -25,7 +36,9 @@
 	$token 			= isset($wpn_settings['pushpad_token'])			? $wpn_settings['pushpad_token'] 		: '';
 	$project_ID 	= isset($wpn_settings['projectID']) 			? $wpn_settings['projectID'] 			: '';
 	$not_title 		= isset($wpn_settings['notification_title'])	? $wpn_settings['notification_title'] 	: get_bloginfo( 'name' );
-
+	$api_type		= isset($wpn_settings['pushpad-api-type'])		? $wpn_settings['pushpad-api-type'] 	: '';
+	$gcm 			= isset($wpn_settings['gcm'])			        ? $wpn_settings['gcm'] 		            : '';
+	$senderID 		= isset($wpn_settings['senderID'])			    ? $wpn_settings['senderID'] 		    : '';
 
 ?>
 
@@ -45,6 +58,11 @@
 		<form method="POST">
 			<?php wp_nonce_field( 'wpn-save-settings', 'wpn-settings-nonce' ); ?>
 			<div class="wpn-form-item">
+				<label for="wpn-pushpad-api-type" class="block">API Type:</label>
+				 <input type="radio" name="wpn-pushpad-api-type" <?php if($api_type=='Simple-api'){?> checked="checked" <?php }?> value="Simple-api"> Simple Api<br>
+                 <input type="radio" name="wpn-pushpad-api-type" <?php if($api_type=='Custom-api'){?> checked="checked" <?php }?> value="Custom-api"> Custom Api<br>
+			</div>
+			<div class="wpn-form-item">
 				<label for="wpn-pushpad-token" class="block">AUTH Token:</label>
 				<input type="text" name="wpn-pushpad-token" value="<?php echo $token ?>" class="regular-text">
 				<p class="description">AUTH Token can be found in the user <a href="https://pushpad.xyz/users/edit">Account Settings</a></p>
@@ -58,6 +76,16 @@
 				<label for="wpn-pushpad-title-notification" class="block">Notification Title:</label>
 				<input type="text" name="wpn-pushpad-title-notification" value="<?php echo $not_title ?>" class="regular-text">
 				<p class="description">Default notification title</p>
+			</div>
+			<div class="wpn-form-item">
+				<label for="wpn-gcm" class="block">GCM:</label>
+				<input type="text" name="wpn-gcm" value="<?php echo $gcm ?>" class="regular-text">
+				
+			</div>
+			<div class="wpn-form-item">
+				<label for="wpn-sender-id" class="block">Sender ID:</label>
+				<input type="text" name="wpn-sender-id" value="<?php echo $senderID ?>" class="regular-text">
+				
 			</div>
 			<div class="wpn-form-item">
 				<input type="submit" name="submit" id="submit" class="button button-primary" value="Save Settings">
